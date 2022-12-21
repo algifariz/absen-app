@@ -1,29 +1,29 @@
 @extends('layouts.app')
 
-@section('title',$title)
+@section('title', $title)
 
 @push('style')
-    <!-- CSS Libraries -->
+  <!-- CSS Libraries -->
 @endpush
 
 @section('main')
-    <div class="main-content">
-        <section class="section">
-            <div class="section-header">
-                <h1>{{ $name }}</h1>
-            </div>
-            <div class="card-header">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Arahkan QR Code ke kamera</h4>
-                            </div>
-                            
-                        </div>
-            </div>
-@endsection
+  <div class="main-content">
+    <section class="section">
+      <div class="section-header">
+        <h1>{{ $name }}</h1>
+      </div>
+      <div class="card-header">
+        <div class="card">
+          <div class="card-header">
+            <h4>Arahkan QR Code ke kamera</h4>
+          </div>
 
-@push('scripts')
-    <!-- JS Libraies -->
+        </div>
+      </div>
+    @endsection
 
-    <!-- Page Specific JS File -->
-@endpush
+    @push('scripts')
+      <!-- JS Libraies -->
+
+      <!-- Page Specific JS File -->
+    @endpush
