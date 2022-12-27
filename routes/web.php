@@ -75,18 +75,25 @@ Route::get('/edit-data/{id}', [App\Http\Controllers\GuruController::class, 'edit
 Route::put('/updateGuru/{id}', [App\Http\Controllers\GuruController::class, 'update'])->name('updateGuru');
 Route::delete('/hapusGuru/{id}', [App\Http\Controllers\GuruController::class, 'destroy']);
 
+// Tingkatan
 Route::get('/tambah-tingkatan', [App\Http\Controllers\TingkatanController::class, 'tambah']);
 Route::post('/tingkatan/simpan_tingkatan', [App\Http\Controllers\TingkatanController::class, 'simpan_tingkatan']);
 Route::get('/edit-tingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'edit']);
 Route::put('/updateTingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'update'])->name('updateTingkatan');
 Route::delete('/hapusTingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'destroy']);
 
+// Tunjangan
 Route::get('/data-tunjangan', [App\Http\Controllers\TunjanganController::class, 'index']);
 Route::get('/tambah-data-tunjangan', [App\Http\Controllers\TunjanganController::class, 'tambah']);
 Route::post('/tunjangan/simpan_tunjangan', [App\Http\Controllers\TunjanganController::class, 'simpan_tunjangan']);
 Route::get('/edit-data-tunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'edit']);
 Route::put('/updateTunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'update'])->name('updateTunjangan');
 Route::delete('/hapusTunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'destroy']);
+
+// Generate QR Code
+Route::get('/generate-qr-code', [App\Http\Controllers\QrController::class, 'index'])->name('generate-qr-code');
+Route::post('/generate-qr-code-guru', [App\Http\Controllers\QrController::class, 'generate_qr_code_guru']);
+
 // auth
 Route::get('/auth-forgot-password', function () {
     return view('pages.auth-forgot-password', ['type_menu' => 'auth']);
