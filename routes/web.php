@@ -97,3 +97,7 @@ Route::post('/login', [App\Http\Controllers\LoginController::class, 'authenticat
 
 // Logout
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
+
+//scan
+Route::get('/scan', [App\Http\Controllers\ScanController::class, 'index']);
+Route::post('/validasi', [App\Http\Controllers\ScanController::class, 'validasi'])->name('validasi');
