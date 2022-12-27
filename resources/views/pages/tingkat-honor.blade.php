@@ -51,7 +51,7 @@
                       <a href="/edit-tingkatan/{{ $ting->id }}" class="btn btn-icon icon-left btn-primary"><i
                           class="far fa-edit"></i>
                         Edit</a>
-                      <form action="/hapusTingkatan/{{ $ting->id }}" method="POST">
+                      <form action="/hapusTingkatan/{{ $ting->id }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')"

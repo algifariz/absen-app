@@ -34,12 +34,17 @@
                   <tr>
                     <th scope="row">{{ $t->id }}</th>
                     <td>{{ $t->tingkatan->nama }}</td>
-                    <td>{{ $t->besar_tunjangan }}</td>
+                    <td>Rp {{ number_format($t->besar_tunjangan, 0, ',', '.') }}</td>
                     <td>
-                      <a href="edit-data-tunjangan" class="btn btn-icon icon-left btn-primary"><i
+                      <a href="/edit-data-tunjangan/{{ $t->id }}" class="btn btn-icon icon-left btn-primary"><i
                           class="far fa-edit"></i>Edit</a>
-                      <a href="#" class="btn btn-icon icon-left btn-danger"><i class="fa fa-trash"
-                          aria-hidden="true"></i></i>Hapus</a>
+                      <form action="/hapusTunjangan/{{ $t->id }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')"
+                          class="btn btn-icon icon-left btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></i>
+                          Hapus</button>
+                      </form>
                     </td>
                   </tr>
                 @endforeach

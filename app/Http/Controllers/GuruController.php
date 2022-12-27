@@ -26,7 +26,7 @@ class GuruController extends Controller
     $data = [
       'title' => $title,
       'tingkatan' => $tingkatan,
-      'type_menu' => 'components'
+      'type_menu' => 'data guru'
 
     ];
     return view('pages/tambah-data', $data);
@@ -54,7 +54,7 @@ class GuruController extends Controller
       'title' => $title,
       'guru' => $guru,
       'tingkatan' => $tingkatan,
-      'type_menu' => 'components'
+      'type_menu' => 'data guru'
     ];
     return view('pages/edit-data', $data);
   }

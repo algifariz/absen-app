@@ -29,7 +29,7 @@ Route::get('/dashboard-ecommerce-dashboard', function () {
 Route::get('/data-guru', function () {
     $dataguru = ModelsGuru::all();
     return view('pages.data-guru', [
-        'type_menu' => 'components',
+        'type_menu' => 'data guru',
         'title' => 'Data Guru',
         'guru' => $dataguru
     ]);
@@ -40,16 +40,16 @@ Route::get('/data-guru', function () {
 Route::get('/rekap-absen', function () {
     return view('pages.rekap-absen', [
         'title' => 'Rekap Absen',
-        'type_menu' => 'components'
+        'type_menu' => 'rekap'
     ]);
 });
 Route::get('/status-guru', function () {
-    return view('pages.status-guru', ['type_menu' => 'components']);
+    return view('pages.status-guru', ['type_menu' => 'status']);
 });
 Route::get('/tingkat-honor', function () {
     $datatingkatan = ModelsTingkatan::all();
     return view('pages.tingkat-honor', [
-        'type_menu' => 'components',
+        'type_menu' => 'tingkat honor',
         'title' => 'Tingkat Honor',
         'tingkatan' => $datatingkatan
     ]);
@@ -62,7 +62,7 @@ Route::get('/tingkat-honor', function () {
 // });
 Route::get('/scan', function () {
     return view('pages.scan', [
-        'type_menu' => 'components',
+        'type_menu' => 'scan qr',
         'title' => 'Scan Qr Code',
         'name' => 'Scan Qr Code',
     ]);
@@ -84,11 +84,9 @@ Route::delete('/hapusTingkatan/{id}', [App\Http\Controllers\TingkatanController:
 Route::get('/data-tunjangan', [App\Http\Controllers\TunjanganController::class, 'index']);
 Route::get('/tambah-data-tunjangan', [App\Http\Controllers\TunjanganController::class, 'tambah']);
 Route::post('/tunjangan/simpan_tunjangan', [App\Http\Controllers\TunjanganController::class, 'simpan_tunjangan']);
-Route::get('/edit-data-tunjangan', function () {
-    return view('pages.edit-data-tunjangan', ['type_menu' => 'components']);
-});
-
-
+Route::get('/edit-data-tunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'edit']);
+Route::put('/updateTunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'update'])->name('updateTunjangan');
+Route::delete('/hapusTunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'destroy']);
 // auth
 Route::get('/auth-forgot-password', function () {
     return view('pages.auth-forgot-password', ['type_menu' => 'auth']);

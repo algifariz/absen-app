@@ -15,7 +15,7 @@ class TunjanganController extends Controller
         $data = [
             'title' => $title,
             'tunjangan' => $tunjangan,
-            'type_menu' => 'components'
+            'type_menu' => 'data tunjangan'
         ];
         return view('pages/data-tunjangan', $data);
     }
@@ -26,7 +26,7 @@ class TunjanganController extends Controller
         $tingkatan = Tingkatan::all();
         $data = [
             'title' => $title,
-            'type_menu' => 'components',
+            'type_menu' => 'data tunjangan',
             'tingkatan' => $tingkatan
 
         ];
@@ -52,5 +52,37 @@ class TunjanganController extends Controller
         ]);
 
         return redirect('/data-tunjangan')->with('status', 'Data Tunjangan Berhasil Ditambahkan');
+    }
+
+    public function edit($id)
+    {
+        $title = 'Edit Tunjangan Honor';
+        $tunjangan = Tunjangan::find($id);
+        $tingkatan = Tingkatan::all();
+        $data = [
+            'title' => $title,
+            'type_menu' => 'data tunjangan',
+            'tunjangan' => $tunjangan,
+            'tingkatan' => $tingkatan
+        ];
+        return view('pages/edit-data-tunjangan', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $tunjangan = Tunjangan::find($id);
+        $tunjangan->besar_tunjangan = $request->besar_tunjangan;
+        $tunjangan->tingkatan_id = $request->tingkatan_id;
+        $tunjangan->save();
+
+        return redirect('/data-tunjangan')->with('status', 'Data Tunjangan Berhasil Diubah');
+    }
+
+    public function destroy($id)
+    {
+        $tunjangan = Tunjangan::find($id);
+        $tunjangan->delete();
+
+        return redirect('/data-tunjangan')->with('status', 'Data Tunjangan Berhasil Dihapus');
     }
 }

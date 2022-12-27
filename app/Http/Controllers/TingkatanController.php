@@ -23,7 +23,7 @@ class TingkatanController extends Controller
     $title = 'Tambah Tingkatan Honor';
     $data = [
       'title' => $title,
-      'type_menu' => 'components'
+      'type_menu' => 'tingkat honor'
     ];
     return view('pages/tambah-tingkatan', $data);
   }
@@ -46,7 +46,7 @@ class TingkatanController extends Controller
     $data = [
       'title' => $title,
       'tingkatan' => $tingkatan,
-      'type_menu' => 'components'
+      'type_menu' => 'tingkat honor'
     ];
     return view('pages/edit-tingkatan', $data);
   }

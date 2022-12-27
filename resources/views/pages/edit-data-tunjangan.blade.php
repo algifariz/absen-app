@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Blank Page')
+@section('title', $title)
 
 @push('style')
   <!-- CSS Libraries -->
@@ -18,7 +18,9 @@
         <div class="row">
           <div class="col-12 ">
             <div class="card">
-              <form class="d-flex justify-content-center flex-column">
+              <form action="{{ url('updateTunjangan', $tunjangan->id) }}" method="POST">
+                @csrf
+                @method('PUT') >
                 <div class="col-12">
                   <div class="card-header">
                     <h4>Edit Data Tunjangan</h4>
@@ -26,17 +28,24 @@
                   <div class="card-body col-8 mx-auto">
                     <div class="form-group">
                       <label>Nama Tingkatan</label>
-                      <input type="text" class="form-control" required="">
+                      <select class="form-control" name="tingkatan_id">
+                        <option value="" selected>Pilih Jenis Tingkatan</option>
+                        @foreach ($tingkatan as $t)
+                          <option value="{{ $t->id }}" {{ $t->id == $tunjangan->tingkatan_id ? 'selected' : '' }}>
+                            {{ $t->nama }}</option>
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group">
                       <label>Besar Tunjangan </label>
-                      <input type="text" class="form-control" required="">
+                      <input type="text" class="form-control" required="" name="besar_tunjangan"
+                        value="{{ $tunjangan->besar_tunjangan }}">
                     </div>
                   </div>
 
                 </div>
                 <div class="card-footer text-right">
-                  <button class="btn btn-primary">Submit</button>
+                  <button class="btn btn-primary" type="submit">Submit</button>
                 </div>
               </form>
             </div>
