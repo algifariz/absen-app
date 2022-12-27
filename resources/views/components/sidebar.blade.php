@@ -10,8 +10,7 @@
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
       <li class="nav-item dropdown {{ $type_menu === 'dashboard' ? 'active' : '' }}">
-        <a class="nav-link" href="{{ url('dashboard-general-dashboard') }}"><i
-            class="fas fa-fire"></i><span>Dashboard</span></a>
+        <a class="nav-link" href="{{ url('dashboard') }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
       </li>
       <li class="nav-item dropdown {{ $type_menu === 'scan qr' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('scan') }}"><i class="fas fa-camera"></i><span>Scan Qr</span></a>

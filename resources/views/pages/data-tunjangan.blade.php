@@ -12,6 +12,12 @@
       <div class="section-header">
         <h1>Data Tunjangan</h1>
       </div>
+      {{-- show status --}}
+      @if (session()->has('status'))
+        <div class="alert alert-success">
+          {{ session('status') }}
+        </div>
+      @endif
       <div class="card-header">
         <a href="/tambah-data-tunjangan"class="btn btn-icon icon-left btn-primary mb-2"><i class="fa fa-plus"
             aria-hidden="true"></i></i> Tambah Data Tunjangan</a>

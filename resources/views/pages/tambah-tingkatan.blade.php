@@ -10,7 +10,7 @@
   <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1></h1>
+        <h1>{{ $title }}</h1>
       </div>
 
       <div class="section-body">
@@ -24,7 +24,7 @@
                 @method('POST')
                 <div class="col-12">
                   <div class="card-header">
-                    <h4></h4>
+                    <h4>{{ $title }}</h4>
                   </div>
                   <div class="card-body col-8 mx-auto">
                     <div class="form-group">

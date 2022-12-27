@@ -14,7 +14,7 @@
       </div>
       {{-- show status --}}
       @if (session()->has('status'))
-        <div class="alert alert-info">
+        <div class="alert alert-success">
           {{ session('status') }}
         </div>
       @endif
