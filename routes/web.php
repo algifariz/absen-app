@@ -15,16 +15,11 @@ use App\Models\Tingkatan as ModelsTingkatan;
 |
 */
 
-Route::redirect('/', '/dashboard-general-dashboard');
 
 // Dashboard
-Route::get('/dashboard-general-dashboard', function () {
-    return view('pages.dashboard-general-dashboard', ['type_menu' => 'dashboard']);
-});
-Route::get('/dashboard-ecommerce-dashboard', function () {
-    return view('pages.dashboard-ecommerce-dashboard', ['type_menu' => 'dashboard']);
-});
-
+Route::get('/dashboard', function () {
+    return view('pages.dashboard', ['type_menu' => 'dashboard']);
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('/data-guru', function () {
     $dataguru = ModelsGuru::all();
@@ -34,8 +29,6 @@ Route::get('/data-guru', function () {
         'guru' => $dataguru
     ]);
 });
-
-// Route::get('/data-guru', [App\Http\Controllers\GuruController::class, 'index'])->name('data-guru');
 
 Route::get('/rekap-absen', function () {
     return view('pages.rekap-absen', [
@@ -94,19 +87,13 @@ Route::delete('/hapusTunjangan/{id}', [App\Http\Controllers\TunjanganController:
 Route::get('/generate-qr-code', [App\Http\Controllers\QrController::class, 'index'])->name('generate-qr-code');
 Route::post('/generate-qr-code-guru', [App\Http\Controllers\QrController::class, 'generate_qr_code_guru']);
 
-// auth
-Route::get('/auth-forgot-password', function () {
-    return view('pages.auth-forgot-password', ['type_menu' => 'auth']);
-});
-Route::get('/auth-login', function () {
-    return view('pages.auth-login', ['type_menu' => 'auth']);
-});
-Route::get('/auth-login2', function () {
-    return view('pages.auth-login2', ['type_menu' => 'auth']);
-});
-Route::get('/auth-register', function () {
-    return view('pages.auth-register', ['type_menu' => 'auth']);
-});
-Route::get('/auth-reset-password', function () {
-    return view('pages.auth-reset-password', ['type_menu' => 'auth']);
-});
+// Register
+Route::get('/register', [App\Http\Controllers\RegisterController::class, 'index']);
+Route::post('/register', [App\Http\Controllers\RegisterController::class, 'store']);
+
+// Login
+Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [App\Http\Controllers\LoginController::class, 'authenticate']);
+
+// Logout
+Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
