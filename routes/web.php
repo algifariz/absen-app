@@ -15,6 +15,10 @@ use App\Models\Tingkatan as ModelsTingkatan;
 |
 */
 
+// redirect / to /login
+Route::get('/', function () {
+    return redirect('/login');
+});
 
 // Dashboard
 Route::get('/dashboard', function () {

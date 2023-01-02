@@ -19,7 +19,7 @@
         </div>
       @endif
       <div class="card-header">
-        <a href="tambah-data" class="btn btn-icon icon-left btn-primary mb-2"><i class="fa fa-plus"
+        <a href="tambah-data" class="btn btn-icon icon-left btn-primary mb-2"><i class="fa fa-user-plus"
             aria-hidden="true"></i></i> Tambah Data Guru</a>
         <div class="card">
           <div class="card-header">

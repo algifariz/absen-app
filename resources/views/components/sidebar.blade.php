@@ -42,7 +42,7 @@
           </li>
         </ul>
       <li class="nav-item dropdown {{ $type_menu === 'generate qr code' ? 'active' : '' }}">
-        <a class="nav-link" href="{{ url('generate-qr-code') }}"><i class="fas fa-fire"></i><span>Generate QR
+        <a class="nav-link" href="{{ url('generate-qr-code') }}"><i class="fas fa-qrcode"></i><span>Generate QR
             Code</span></a>
       </li>
       </li>
