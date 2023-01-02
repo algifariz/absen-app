@@ -61,7 +61,9 @@
                     text: response.message,
                     showConfirmButton: false,
                     timer: 1500
-                  })
+                  }).then(function() {
+                    window.location = "{{ url('/scan') }}";
+                  });
                 } else {
                   Swal.fire({
                     icon: 'error',
@@ -69,7 +71,9 @@
                     text: response.message,
                     showConfirmButton: false,
                     timer: 1500
-                  })
+                  }).then(function() {
+                    window.location = "{{ url('/scan') }}";
+                  });
                 }
               }
             });

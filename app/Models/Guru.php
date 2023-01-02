@@ -16,4 +16,9 @@ class Guru extends Model
     {
         return $this->belongsTo(Tingkatan::class, 'tingkatan_id');
     }
+
+    public function presensi()
+    {
+        return $this->hasMany(Presensi::class, 'nuptk', 'nuptk');
+    }
 }
