@@ -15,6 +15,7 @@
 @endpush
 
 @section('main')
+
   <div class="main-content">
     <section class="section">
       <div class="section-header">

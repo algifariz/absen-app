@@ -40,9 +40,9 @@ Route::get('/rekap-absen', function () {
         'type_menu' => 'rekap'
     ]);
 });
-Route::get('/status-guru', function () {
-    return view('pages.status-guru', ['type_menu' => 'status']);
-});
+
+Route::get('/status-guru', [App\Http\Controllers\PresensiController::class, 'index']);
+
 Route::get('/tingkat-honor', function () {
     $datatingkatan = ModelsTingkatan::all();
     return view('pages.tingkat-honor', [
