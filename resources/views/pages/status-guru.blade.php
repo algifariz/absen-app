@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'DataTables')
+@section('title', 'Status Guru')
 
 @push('style')
   <!-- CSS Libraries -->
@@ -19,7 +19,7 @@
   <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>DataTables</h1>
+        <h1>{{ $title }}</h1>
       </div>
 
       <div class="section-body">
@@ -35,29 +35,36 @@
                   <table class="table-striped table" id="table-1">
                     <thead>
                       <tr>
-                        <th class="text-center">
-                          #
-                        </th>
-                        <th>Nama</th>
-                        <th>NIP</th>
-                        <th>Due Date</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th scope="col"> No</th>
+                        <th scope="col">NIP</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Tanggal</th>
+                        <th scope="col">jam Masuk</th>
+                        <th scope="col">jam Keluar</th>
+                        <th scope="col">Status</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>Create a mobile app</td>
-                        <td>197002162000031003</td>
-                        <td>2018-01-20</td>
-                        <td>
-                          <div class="badge badge-success">Completed</div>
-                        </td>
-                        <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                      </tr>
+                      @foreach ($presensi as $p)
+                        <tr>
+                          <td scope="row">
+                            {{ $loop->iteration }}
+                          </td>
+                          <td>{{ $p->nuptk }}</td>
+                          <td>{{ $p->guru[0]->nama }}</td>
+                          <td>{{ $p->tanggal }}</td>
+                          <td>{{ $p->jam_masuk }}</td>
+                          <td>{{ $p->jam_keluar }}</td>
+                          <td>
+                            @if ($p->status == 0)
+                              <div class="badge badge-warning">Masuk</div>
+                            @elseif($p->status == 1)
+                              <div class="badge badge-success">Hadir</div>
+                            @endif
+                          </td>
+                        </tr>
+                      @endforeach
+
                     </tbody>
                   </table>
                 </div>
