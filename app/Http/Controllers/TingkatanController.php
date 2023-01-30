@@ -10,20 +10,21 @@ class TingkatanController extends Controller
 {
   public function index()
   {
-    $title = 'Tingkat Honor';
+    $title = 'Data Tingkatan';
     $tingkatan = Tingkatan::all();
     $data = [
       'title' => $title,
       'tingkatan' => $tingkatan,
+      'type_menu' => 'data tingkatan'
     ];
-    return view('pages/tingkat-honor', $data);
+    return view('pages/data-tingkatan', $data);
   }
   public function tambah()
   {
-    $title = 'Tambah Tingkatan Honor';
+    $title = 'Tambah Tingkatan';
     $data = [
       'title' => $title,
-      'type_menu' => 'tingkat honor'
+      'type_menu' => 'data tingkatan'
     ];
     return view('pages/tambah-tingkatan', $data);
   }
@@ -36,17 +37,17 @@ class TingkatanController extends Controller
     ]);
 
     Tingkatan::create($request->all());
-    return redirect('/tingkat-honor')->with('status', 'Data Tingkatan Berhasil Ditambahkan');
+    return redirect('/data-tingkatan')->with('status', 'Data Tingkatan Berhasil Ditambahkan');
   }
 
   public function edit($id)
   {
-    $title = 'Edit Tingkatan Honor';
+    $title = 'Edit Tingkatan ';
     $tingkatan = Tingkatan::find($id);
     $data = [
       'title' => $title,
       'tingkatan' => $tingkatan,
-      'type_menu' => 'tingkat honor'
+      'type_menu' => 'data tingkatan'
     ];
     return view('pages/edit-tingkatan', $data);
   }
@@ -60,13 +61,13 @@ class TingkatanController extends Controller
     $tingkatan = Tingkatan::find($id);
     $tingkatan->nama = $request->nama;
     $tingkatan->save();
-    return redirect('/tingkat-honor')->with('status', 'Data Tingkatan Berhasil Diubah');
+    return redirect('/data-tingkatan')->with('status', 'Data Tingkatan Berhasil Diubah');
   }
 
   public function destroy($id)
   {
     $tingkatan = Tingkatan::find($id);
     $tingkatan->delete();
-    return redirect('/tingkat-honor')->with('status', 'Data Tingkatan Berhasil Dihapus');
+    return redirect('/data-tingkatan')->with('status', 'Data Tingkatan Berhasil Dihapus');
   }
 }
