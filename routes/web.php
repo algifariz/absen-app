@@ -32,7 +32,7 @@ Route::get('/data-guru', function () {
         'title' => 'Data Guru',
         'guru' => $dataguru
     ]);
-});
+})->middleware('auth');
 
 Route::get('/rekap-absen', function () {
     return view('pages.rekap-absen', [
@@ -41,7 +41,7 @@ Route::get('/rekap-absen', function () {
     ]);
 });
 
-Route::get('/status-guru', [App\Http\Controllers\PresensiController::class, 'index']);
+Route::get('/status-guru', [App\Http\Controllers\PresensiController::class, 'index'])->middleware('auth');
 
 Route::get('/tingkat-honor', function () {
     $datatingkatan = ModelsTingkatan::all();
@@ -87,6 +87,9 @@ Route::get('/edit-data-tunjangan/{id}', [App\Http\Controllers\TunjanganControlle
 Route::put('/updateTunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'update'])->name('updateTunjangan');
 Route::delete('/hapusTunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'destroy']);
 
+// Jabatan
+Route::get('/data-jabatan', [App\Http\Controllers\JabatanController::class, 'index']);
+
 // Generate QR Code
 Route::get('/generate-qr-code', [App\Http\Controllers\QrController::class, 'index'])->name('generate-qr-code');
 Route::post('/generate-qr-code-guru', [App\Http\Controllers\QrController::class, 'generate_qr_code_guru']);
@@ -105,3 +108,21 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 //scan
 Route::get('/scan', [App\Http\Controllers\ScanController::class, 'index']);
 Route::post('/validasi', [App\Http\Controllers\ScanController::class, 'validasi'])->name('validasi');
+
+//laporan gajih
+Route::get('/laporan-gajih', function () {
+    return view('pages.laporan-gajih', [
+        'type_menu' => 'laporan gajih',
+        'title' => 'Laporan Gajih',
+        'name' => 'Laporan Gajih',
+    ]);
+});
+
+//slip gajih
+Route::get('/slip-gajih', function () {
+    return view('pages.slip-gajih', [
+        'type_menu' => 'slip gajih',
+        'title' => 'Slip Gajih',
+        'name' => 'Slip Gajih',
+    ]);
+});

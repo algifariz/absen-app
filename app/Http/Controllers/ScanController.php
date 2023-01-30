@@ -33,19 +33,44 @@ class ScanController extends Controller
                 $presensi = Presensi::where('nuptk', $nuptk)->where('tanggal', date('Y-m-d'))->where('jam_keluar', null)->first();
 
                 if ($presensi) {
-                    $presensi->update([
-                        'jam_keluar' => date('H:i:s', strtotime('+7 hours')),
-                        'status' => 1,
-                    ]);
+                    // Make cooldown absen should be 10 minutes after jam_masuk
+                    $jam_masuk = date('H:i:s', strtotime($presensi->jam_masuk));
+                    $jam_sekarang = date('H:i:s', strtotime('+7 hours'));
 
-                    return response()->json([
-                        'status' => 200,
-                        'message' => 'Berhasil',
-                    ]);
+                    $jam_masuk = strtotime($jam_masuk);
+                    $jam_sekarang = strtotime($jam_sekarang);
+
+                    $selisih = $jam_sekarang - $jam_masuk;
+
+                    if ($selisih > 600) {
+                        $update = Presensi::where('nuptk', $nuptk)->where('tanggal', date('Y-m-d'))->where('jam_keluar', null)->update(
+                            [
+                                'jam_keluar' => date('H:i:s', strtotime('+7 hours')),
+                                'status' => 1,
+                            ]
+                        );
+
+                        if ($update) {
+                            return response()->json([
+                                'status' => 200,
+                                'message' => 'Berhasil',
+                            ]);
+                        } else {
+                            return response()->json([
+                                'status' => 400,
+                                'message' => 'Gagalbhvgcffgfgfg',
+                            ]);
+                        }
+                    } else {
+                        return response()->json([
+                            'status' => 400,
+                            'message' => 'Gagal, terlalu cepat absen!',
+                        ]);
+                    }
                 } else {
                     return response()->json([
                         'status' => 400,
-                        'message' => 'Gagal',
+                        'message' => 'Gagal, Kamu sudah absen hari ini!',
                     ]);
                 }
             } else {
@@ -63,7 +88,6 @@ class ScanController extends Controller
                         'status' => 0,
                     ]
                 );
-
                 // If success then return status 200 else return status 400
                 if ($create) {
                     return response()->json([

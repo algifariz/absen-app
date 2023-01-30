@@ -28,7 +28,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h4>Basic DataTables</h4>
+                <h4>Data guru tidak hadir</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -36,7 +36,50 @@
                     <thead>
                       <tr>
                         <th scope="col"> No</th>
-                        <th scope="col">NIP</th>
+                        <th scope="col">NUPTK</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Tanggal</th>
+                        <th scope="col">jam Masuk</th>
+                        <th scope="col">jam Keluar</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($guru as $g)
+                        <tr>
+                          <td>{{ $loop->iteration }}</td>
+                          <td>{{ $g->nuptk }}</td>
+                          <td>{{ $g->nama }}</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>
+                            <div class="badge badge-danger">Tidak Hadir</div>
+                          </td>
+                        </tr>
+                      @endforeach
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4>Data Guru Absen</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table-striped table" id="table-1">
+                    <thead>
+                      <tr>
+                        <th scope="col"> No</th>
+                        <th scope="col">NUPTK</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Tanggal</th>
                         <th scope="col">jam Masuk</th>
@@ -47,14 +90,18 @@
                     <tbody>
                       @foreach ($presensi as $p)
                         <tr>
-                          <td scope="row">
-                            {{ $loop->iteration }}
-                          </td>
+                          <td>{{ $loop->iteration }}</td>
                           <td>{{ $p->nuptk }}</td>
                           <td>{{ $p->guru[0]->nama }}</td>
                           <td>{{ $p->tanggal }}</td>
                           <td>{{ $p->jam_masuk }}</td>
-                          <td>{{ $p->jam_keluar }}</td>
+                          <td>
+                            @if ($p->jam_keluar == null)
+                              -
+                            @else
+                              {{ $p->jam_keluar }}
+                            @endif
+                          </td>
                           <td>
                             @if ($p->status == 0)
                               <div class="badge badge-warning">Masuk</div>

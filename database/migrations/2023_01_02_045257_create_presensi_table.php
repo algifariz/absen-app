@@ -20,7 +20,7 @@ class CreatePresensiTable extends Migration
             $table->time('jam_masuk');
             $table->time('jam_keluar')->nullable();
             $table->boolean('kehadiran');
-            $table->boolean('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }
