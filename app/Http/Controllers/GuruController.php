@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guru;
 use App\Models\Tingkatan;
+use App\Models\Tunjangan;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -12,9 +13,13 @@ class GuruController extends Controller
   {
     $title = 'Data Guru';
     $guru = Guru::with('tingkatan')->get();
+    $tunjangan = Tunjangan::all();
+
     $data = [
       'title' => $title,
       'guru' => $guru,
+      'tunjangan' => $tunjangan,
+      'type_menu' => 'data guru'
     ];
     return view('pages/data-guru', $data);
   }
