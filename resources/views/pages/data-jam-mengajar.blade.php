@@ -33,9 +33,38 @@
                   <th scope="col">Nama</th>
                   <th scope="col">Besar Tunjangan</th>
                   <th scope="col">Jam Mengajar</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
+                @foreach ($jam_mengajar as $jam)
+                  <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>
+                      {{ $jam->guru->nama }}
+                    </td>
+                    <td>
+                      @foreach ($tunjangan as $tun)
+                        @if ($tun->tingkatan_id == $jam->guru->tingkatan_id)
+                          Rp {{ number_format($tun->besar_tunjangan, 0, ',', '.') }}
+                        @endif
+                      @endforeach
+                    </td>
+                    <td>{{ $jam->jam_mengajar }} Jam</td>
+                    <td>
+                      <a href="/edit-data-jam-mengajar/{{ $jam->id }}" class="btn btn-icon icon-left btn-primary"><i
+                          class="far fa-edit"></i>Edit</a>
+                      <form action="/" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')"
+                          class="btn btn-icon icon-left btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></i>
+                          Hapus</button>
+                      </form>
+                    </td>
+                  </tr>
+                @endforeach
+
                 {{-- @foreach ($guru as $g)
                   <tr>
                     <th scope="row">{{ $g->id }}</th>
