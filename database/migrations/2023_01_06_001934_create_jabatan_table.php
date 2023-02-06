@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jam_mengajar', function (Blueprint $table) {
+        Schema::create('jabatan', function (Blueprint $table) {
             $table->id();
-            $table->integer('nuptk')->unique();
-            $table->integer('jam_mengajar');
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jam_mengajar');
+        Schema::dropIfExists('jabatan');
     }
 };

@@ -18,10 +18,10 @@
         <div class="row">
           <div class="col-12 ">
             <div class="card">
-              <form class="d-flex justify-content-center flex-column" action="{{ url('/simpan_jam_mengajar') }}"
-                method="POST">
+              <form class="d-flex justify-content-center flex-column"
+                action="{{ url('/update-jam-mengajar', $jam_mengajar->id) }}" method='POST'>
                 @csrf
-                @method('POST')
+                @method('PUT')
                 <div class="col-12">
                   <div class="card-header">
                     <h4>Tambah Data Jam Mengajar</h4>
@@ -29,24 +29,24 @@
                   <div class="card-body col-8 mx-auto">
                     <div class="form-group mb-4">
                       <label>Nama</label>
-                      <select class="form-control" name="nuptk">
-                        <option value="" selected>Pilih Nama Guru</option>
-                        @foreach ($guru as $g)
-                          <option value="{{ $g->nuptk }}">{{ $g->nama }}</option>
-                        @endforeach
-                      </select>
+                      {{-- disabled input value $guru->nuptk and show $guru->nama --}}
+                      <input type="text" name="nama_guru" class="form-control" value="{{ $jam_mengajar->guru->nama }}"
+                        disabled>
+                      <input type="hidden" name="nuptk" value="{{ $jam_mengajar->guru->nuptk }}">
+
                     </div>
 
                     <div class="form-group">
                       <label>Jam Mengajar</label>
-                      <input type="number" name="jam_mengajar" class="form-control" required="">
+                      <input type="number" name="jam_mengajar" class="form-control"
+                        value="{{ $jam_mengajar->jam_mengajar }}" required>
                     </div>
                   </div>
                 </div>
 
             </div>
             <div class="card-footer text-right">
-              <button class="btn btn-primary">Submit</button>
+              <button class="btn btn-primary"type='submit'>Submit</button>
             </div>
             </form>
           </div>

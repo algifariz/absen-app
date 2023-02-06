@@ -85,4 +85,12 @@ class JamMengajarController extends Controller
             return redirect('/data-jam-mengajar')->with('status', 'Data Jam Mengajar Gagal Diubah');
         }
     }
+
+    public function destroy($id)
+    {
+        $jam_mengajar = JamMengajar::find($id);
+        $jam_mengajar->delete();
+
+        return redirect('/data-jam-mengajar')->with('status', 'Data Jam Mengajar Berhasil Dihapus');
+    }
 }

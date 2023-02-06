@@ -10,7 +10,7 @@
   <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Data Tingkatan Honor</h1>
+        <h1>Data Tingkatan </h1>
       </div>
       {{-- show status --}}
       @if (session()->has('status'))
@@ -20,10 +20,10 @@
       @endif
       <div class="card-header">
         <a href="tambah-tingkatan"class="btn btn-icon icon-left btn-primary mb-2"><i class="fa fa-plus"
-            aria-hidden="true"></i></i> Tambah Tingkatan Honor</a>
+            aria-hidden="true"></i></i> Tambah Tingkatan </a>
         <div class="card">
           <div class="card-header">
-            <h4>Data Tingkat Honor</h4>
+            <h4>Data Tingkat </h4>
           </div>
           <div class="card-body">
             <table class="table">

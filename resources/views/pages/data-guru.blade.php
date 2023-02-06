@@ -32,7 +32,9 @@
                   <th scope="col">NO</th>
                   <th scope="col">Nama</th>
                   <th scope="col">NUPTK</th>
-                  <th scope="col">Jenis Tingkatan</th>
+                  <th scope="col">Jabatan Sebagai</th>
+
+                  <th scope="col">Honor Per Jam</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -43,6 +45,14 @@
                     <td>{{ $g->nama }} </td>
                     <td>{{ $g->nuptk }}</td>
                     <td>{{ $g->tingkatan->nama }}</td>
+
+                    <td>
+                      @foreach ($tunjangan as $t)
+                        @if ($t->tingkatan_id == $g->tingkatan->id)
+                          Rp {{ number_format($t->besar_tunjangan, 0, ',', '.') }}
+                        @endif
+                      @endforeach
+                    </td>
                     <td>
                       <a href="/edit-data/{{ $g->id }}" class="btn btn-icon icon-left btn-primary"><i
                           class="far fa-edit"></i>Edit</a>

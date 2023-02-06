@@ -54,7 +54,7 @@
                     <td>
                       <a href="/edit-data-jam-mengajar/{{ $jam->id }}" class="btn btn-icon icon-left btn-primary"><i
                           class="far fa-edit"></i>Edit</a>
-                      <form action="/" method="POST" class="d-inline">
+                      <form action="/hapusJamMengajar/{{ $jam->id }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')"

@@ -21,4 +21,9 @@ class Guru extends Model
     {
         return $this->hasMany(Presensi::class, 'nuptk', 'nuptk');
     }
+
+    public function jam_mengajar()
+    {
+        return $this->hasMany(JamMengajar::class, 'nuptk', 'nuptk');
+    }
 }

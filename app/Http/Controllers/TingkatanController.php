@@ -15,16 +15,17 @@ class TingkatanController extends Controller
     $data = [
       'title' => $title,
       'tingkatan' => $tingkatan,
-      'type_menu' => 'data tingkatan'
+      'type_menu' => 'data-tingkatan'
     ];
     return view('pages/data-tingkatan', $data);
   }
+
   public function tambah()
   {
     $title = 'Tambah Tingkatan';
     $data = [
       'title' => $title,
-      'type_menu' => 'data tingkatan'
+      'type_menu' => 'data-tingkatan'
     ];
     return view('pages/tambah-tingkatan', $data);
   }
@@ -42,12 +43,12 @@ class TingkatanController extends Controller
 
   public function edit($id)
   {
-    $title = 'Edit Tingkatan ';
+    $title = 'Edit Tingkatan';
     $tingkatan = Tingkatan::find($id);
     $data = [
       'title' => $title,
       'tingkatan' => $tingkatan,
-      'type_menu' => 'data tingkatan'
+      'type_menu' => 'data-tingkatan'
     ];
     return view('pages/edit-tingkatan', $data);
   }
