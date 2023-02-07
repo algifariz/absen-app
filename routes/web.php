@@ -109,8 +109,25 @@ Route::get('/laporan-gajih', function () {
 //slip gajih
 Route::get('/slip-gajih', function () {
     return view('pages.slip-gajih', [
-        'type_menu' => 'slip gajih',
+        'type_menu' => 'slip-gajih',
         'title' => 'Slip Gajih',
         'name' => 'Slip Gajih',
     ]);
 });
+
+//penggajian
+Route::get('/penggajian', function () {
+    return view('pages.penggajian', [
+        'type_menu' => 'penggajian',
+        'title' => 'Penggajian',
+        'name' => 'Penggajian',
+    ]);
+});
+Route::get('/tambah-penggajian', function(){
+    return view('pages.tambah-penggajian',[
+        'type_menu' => 'tambah-penggajian',
+        'title'
+
+    ]);
+});
+

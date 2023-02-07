@@ -57,14 +57,14 @@
                 aria-hidden="true"></i><span>Data Gajih</span></a>
           </li>
         </ul>
-      <li class="menu-header">Laporan</li>
+        {{-- <li class="menu-header">Laporan</li>
       <li
         class="nav-item dropdown {{ $type_menu === 'laporan-absen' || $type_menu === 'laporan-gajih' || $type_menu === 'slip-gajih' ? 'active' : '' }}">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa-solid fa-newspaper"></i>
           <span>Laporan</span></a>
         <ul class="dropdown-menu block">
           <li class="nav-item dropdown {{ $type_menu === 'laporan-absen' ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('/laporanabsen') }}"><i class="fa-solid fa-users"></i></i><span>Laporan
+            <a class="nav-link" href=""><i class="fa-solid fa-users"></i></i><span>Laporan
                 Absensi</span></a>
           </li>
           <li class="nav-item dropdown {{ $type_menu === 'laporan-gajih' ? 'active' : '' }}">
@@ -72,10 +72,12 @@
                 Gajih</span></a>
           </li>
           <li class="nav-item dropdown {{ $type_menu === 'slip-gajih' ? 'active' : '' }}">
-            <a class="nav-link" href="/slipgajih"><i class="fa-solid fa-users"></i></i><span>Slip
+            <a class="nav-link" href="/slip-gajih"><i class="fa-solid fa-users"></i></i><span>Slip
                 Gajih</span></a>
           </li>
         </ul>
+      </li> --}}
+
       <li class="nav-item dropdown {{ $type_menu === 'generate qr code' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('generate-qr-code') }}"><i class="fas fa-qrcode"></i><span>Generate QR
             Code</span></a>
