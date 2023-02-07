@@ -18,6 +18,11 @@
       <li class="nav-item dropdown {{ $type_menu === 'status' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('status-guru') }}"><i class="fas fa-check"></i><span>Status</span></a>
       </li>
+
+      <li class="nav-item dropdown {{ $type_menu === 'generate qr code' ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('generate-qr-code') }}"><i class="fas fa-qrcode"></i><span>Generate QR
+            Code</span></a>
+      </li>
       {{-- master --}}
       <li class="menu-header">Master Data</li>
       <li
@@ -45,21 +50,16 @@
       </li>
 
       <li class="menu-header">Trasaksi</li>
-      <li class="nav-item dropdown {{ $type_menu === 'data-absen' || $type_menu === 'data-gajih' ? 'active' : '' }}">
+      <li class="nav-item dropdown {{ $type_menu === 'laporan-gaji' ? 'active' : '' }}">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
             class="fa-solid fa-money-check-dollar"></i>
           <span>Laporan</span></a>
         <ul class="dropdown-menu block">
-          <li class="nav-item dropdown {{ $type_menu === 'data-gajih' ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('tingkat-honor') }}"><i class="fa fa-dollar"
+          <li class="nav-item dropdown {{ $type_menu === 'laporan-gaji' ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('laporan-gaji') }}"><i class="fa fa-dollar"
                 aria-hidden="true"></i><span>Gaji Guru</span></a>
           </li>
         </ul>
-      </li>
-
-      <li class="nav-item dropdown {{ $type_menu === 'generate qr code' ? 'active' : '' }}">
-        <a class="nav-link" href="{{ url('generate-qr-code') }}"><i class="fas fa-qrcode"></i><span>Generate QR
-            Code</span></a>
       </li>
     </ul>
   </aside>

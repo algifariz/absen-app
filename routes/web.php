@@ -94,36 +94,5 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 Route::get('/scan', [App\Http\Controllers\ScanController::class, 'index'])->middleware(['auth']);
 Route::post('/validasi', [App\Http\Controllers\ScanController::class, 'validasi'])->name('validasi')->middleware(['auth']);
 
-//laporan gajih
-Route::get('/laporan-gajih', function () {
-    return view('pages.laporan-gajih', [
-        'type_menu' => 'laporan gajih',
-        'title' => 'Laporan Gajih',
-        'name' => 'Laporan Gajih',
-    ]);
-});
-
-//slip gajih
-Route::get('/slip-gajih', function () {
-    return view('pages.slip-gajih', [
-        'type_menu' => 'slip-gajih',
-        'title' => 'Slip Gajih',
-        'name' => 'Slip Gajih',
-    ]);
-});
-
-//penggajian
-Route::get('/penggajian', function () {
-    return view('pages.penggajian', [
-        'type_menu' => 'penggajian',
-        'title' => 'Penggajian',
-        'name' => 'Penggajian',
-    ]);
-});
-Route::get('/tambah-penggajian', function () {
-    return view('pages.tambah-penggajian', [
-        'type_menu' => 'tambah-penggajian',
-        'title'
-
-    ]);
-});
+//laporan gaji
+Route::get('/laporan-gaji', [App\Http\Controllers\LaporanGajiController::class, 'index'])->middleware(['auth']);
