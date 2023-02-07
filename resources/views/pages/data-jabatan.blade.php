@@ -19,8 +19,6 @@
         </div>
       @endif
       <div class="card-header">
-        <a href="tambah-tingkatan"class="btn btn-icon icon-left btn-primary mb-2"><i class="fa fa-plus"
-            aria-hidden="true"></i></i> Tambah Tingkatan </a>
         <div class="card">
           <div class="card-header">
             <h4>Data Tingkat </h4>
@@ -32,10 +30,8 @@
 
                 <tr>
                   <th scope="col">NO</th>
-                  <th scope="col" colspan="3">Nama</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Besar Tunjangan</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -43,15 +39,12 @@
                 @foreach ($jabatan as $jab)
                   <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td colspan="3">{{ $jab->nama_jabatan }}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ $jab->nama_jabatan }}</td>
+                    <td>Rp {{ number_format($jab->besar_tunjangan, 0, ',', '.') }}</td>
                     <td>
                       <a href="/edit-tingkatan/{{ $jab->id }}" class="btn btn-icon icon-left btn-primary"><i
                           class="far fa-edit"></i>
                         Edit</a>
-
                     </td>
                   </tr>
                 @endforeach
