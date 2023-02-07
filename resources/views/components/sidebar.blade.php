@@ -21,7 +21,7 @@
       {{-- master --}}
       <li class="menu-header">Master Data</li>
       <li
-        class="nav-item dropdown {{ $type_menu === 'data guru' || $type_menu === 'data-tingkatan' || $type_menu === 'data tunjangan' || 'data jam mengajar' ? 'active' : '' }}">
+        class="nav-item dropdown {{ $type_menu === 'data guru' || $type_menu === 'data jabatan' || $type_menu === 'data tunjangan' || 'data jam mengajar' ? 'active' : '' }}">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i>
           <span>Master Data</span></a>
         <ul class="dropdown-menu block">
@@ -29,9 +29,9 @@
             <a class="nav-link" href="{{ url('data-guru') }}"><i class="fa-solid fa-users"></i></i><span>Data
                 Guru</span></a>
           </li>
-          <li class="nav-item dropdown {{ $type_menu === 'data-tingkatan' ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('data-tingkatan') }}"><i class="fa fa-line-chart"
-                aria-hidden="true"></i><span> Data Tingkatan </span></a>
+          <li class="nav-item dropdown {{ $type_menu === 'data jabatan' ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('data-jabatan') }}"><i class="fa fa-line-chart"
+                aria-hidden="true"></i><span> Data Jabatan</span></a>
           </li>
           <li class="nav-item dropdown {{ $type_menu === 'data tunjangan' ? 'active' : '' }}">
             <a class="nav-link" href="{{ url('data-tunjangan') }}"><i class="fa fa-usd"

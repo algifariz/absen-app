@@ -54,14 +54,15 @@ Route::put('/updateGuru/{id}', [App\Http\Controllers\GuruController::class, 'upd
 Route::delete('/hapusGuru/{id}', [App\Http\Controllers\GuruController::class, 'destroy'])->middleware(['auth']);
 
 // Tingkatan
-Route::get('/tambah-tingkatan', [App\Http\Controllers\TingkatanController::class, 'tambah'])->middleware(['auth']);
+// Route::get('/tambah-tingkatan', [App\Http\Controllers\TingkatanController::class, 'tambah'])->middleware(['auth']);
+Route::get('/data-jabatan', [App\Http\Controllers\JabatanController::class, 'index'])->middleware(['auth']);
 Route::post('/tingkatan/simpan_tingkatan', [App\Http\Controllers\TingkatanController::class, 'simpan_tingkatan'])->middleware(['auth']);
 Route::get('/edit-tingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'edit'])->middleware(['auth']);
 Route::put('/updateTingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'update'])->name('updateTingkatan')->middleware(['auth']);
 Route::delete('/hapusTingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'destroy'])->middleware(['auth']);
 
 // Tunjangan
-Route::get('/data-tunjangan', [App\Http\Controllers\TunjanganController::class, 'index'])->middleware(['auth']);
+Route::get('/data-tunjangan', [App\Http\Controllers\JenisTunjangan::class, 'index'])->middleware(['auth']);
 Route::get('/tambah-data-tunjangan', [App\Http\Controllers\TunjanganController::class, 'tambah'])->middleware(['auth']);
 Route::post('/tunjangan/simpan_tunjangan', [App\Http\Controllers\TunjanganController::class, 'simpan_tunjangan'])->middleware(['auth']);
 Route::get('/edit-data-tunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'edit'])->middleware(['auth']);
@@ -123,11 +124,10 @@ Route::get('/penggajian', function () {
         'name' => 'Penggajian',
     ]);
 });
-Route::get('/tambah-penggajian', function(){
-    return view('pages.tambah-penggajian',[
+Route::get('/tambah-penggajian', function () {
+    return view('pages.tambah-penggajian', [
         'type_menu' => 'tambah-penggajian',
         'title'
 
     ]);
 });
-

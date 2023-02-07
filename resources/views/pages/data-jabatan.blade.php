@@ -40,24 +40,18 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($tingkatan as $ting)
+                @foreach ($jabatan as $jab)
                   <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td colspan="3">{{ $ting->nama }}</td>
+                    <td colspan="3">{{ $jab->nama_jabatan }}</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>
-                      <a href="/edit-tingkatan/{{ $ting->id }}" class="btn btn-icon icon-left btn-primary"><i
+                      <a href="/edit-tingkatan/{{ $jab->id }}" class="btn btn-icon icon-left btn-primary"><i
                           class="far fa-edit"></i>
                         Edit</a>
-                      <form action="/hapusTingkatan/{{ $ting->id }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')"
-                          class="btn btn-icon icon-left btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></i>
-                          Hapus</button>
-                      </form>
+
                     </td>
                   </tr>
                 @endforeach
