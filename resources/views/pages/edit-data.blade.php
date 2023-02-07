@@ -29,21 +29,76 @@
                     <div class="card-body col-8 mx-auto">
                       <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" class="form-control" required="" name="nama"
+                        <input type="text" name="nama" class="form-control" required=""
                           value="{{ $guru->nama }}">
                       </div>
                       <div class="form-group">
                         <label>NUPTK</label>
-                        <input type="text" class="form-control" required="" name="nuptk"
+                        <input type="text" name="nuptk" class="form-control" required=""
                           value="{{ $guru->nuptk }}">
                       </div>
+
+                      <div class="form-group">
+                        <label>Tempat Lahir</label>
+                        <input type="text" name="tempat_lahir" class="form-control" required=""
+                          value="{{ $guru->tempat_lahir }}">
+                      </div>
+
+                      <div class="form-group">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" name="tanggal_lahir" class="form-control" required=""
+                          value="{{ $guru->tanggal_lahir }}">
+                      </div>
+
+                      <div class="form-group">
+                        <label>Jenis Kelamin</label>
+                        <select class="form-control" name="jenis_kelamin">
+                          <option value="" selected>Pilih Jenis Kelamin</option>
+                          <option value="1" {{ $guru->jenis_kelamin == 1 ? 'selected' : '' }}>Laki-Laki</option>
+                          <option value="0" {{ $guru->jenis_kelamin == 0 ? 'selected' : '' }}>Perempuan</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Agama</label>
+                        <select class="form-control" name="agama">
+                          <option value="" selected>Pilih Agama</option>
+                          <option value="Islam" {{ $guru->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                          <option value="Kristen" {{ $guru->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                          <option value="Hindu" {{ $guru->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                          <option value="Budha" {{ $guru->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea name="alamat" class="form-control" required="">{{ $guru->alamat }}</textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label>No HP</label>
+                        <input type="text" name="no_hp" class="form-control" required=""
+                          value={{ $guru->no_hp }}>
+                      </div>
+
                       <div class="form-group">
                         <label>Jenis Tunjangan</label>
-                        <select class="form-control" name="tingkatan_id">
-                          <option value="">Pilih Data Tingkatan</option>
-                          @foreach ($tingkatan as $ting)
-                            <option value="{{ $ting->id }}" {{ $ting->id == $guru->tingkatan_id ? 'selected' : '' }}>
-                              {{ $ting->nama }}</option>
+                        <select class="form-control" name="tunjangan_id">
+                          <option value="" selected>Pilih Jenis Tunjangan</option>
+                          @foreach ($tunjangan as $t)
+                            <option value="{{ $t->id }}" {{ $t->id == $guru->tunjangan_id ? 'selected' : '' }}>
+                              {{ $t->jenis_tunjangan }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Nama Jabatan</label>
+                        <select class="form-control" name="jabatan_id">
+                          <option value="" selected>Pilih Jenis Tingkatan</option>
+                          @foreach ($jabatan as $j)
+                            <option value="{{ $j->id }}" {{ $j->id == $guru->jabatan_id ? 'selected' : '' }}>
+                              {{ $j->nama_jabatan }}</option>
                           @endforeach
                         </select>
                       </div>

@@ -15,4 +15,9 @@ class Jabatan extends Model
         'nama_jabatan',
         'besar_tunjangan',
     ];
+
+    public function guru()
+    {
+        return $this->hasMany(Guru::class, 'jabatan_id');
+    }
 }

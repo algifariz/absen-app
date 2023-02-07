@@ -15,4 +15,9 @@ class JenisTunjangan extends Model
         'jenis_tunjangan',
         'besar_tunjangan',
     ];
+
+    public function guru()
+    {
+        return $this->hasMany(Guru::class, 'tunjangan_id');
+    }
 }

@@ -34,8 +34,6 @@
                   <th scope="col">NUPTK</th>
                   <th scope="col">Jenis Tunjangan</th>
                   <th scope="col">Jabatan</th>
-
-                  <th scope="col">Honor Per Jam</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -45,16 +43,11 @@
                     <th scope="row">{{ $g->id }}</th>
                     <td>{{ $g->nama }} </td>
                     <td>{{ $g->nuptk }}</td>
-                    <td>{{ $g->tingkatan->nama }}</td>
-
+                    <td>{{ $g->jenis_tunjangan->jenis_tunjangan }}</td>
+                    <td>{{ $g->jabatan->nama_jabatan }}</td>
                     <td>
-                      @foreach ($tunjangan as $t)
-                        @if ($t->tingkatan_id == $g->tingkatan->id)
-                          Rp {{ number_format($t->besar_tunjangan, 0, ',', '.') }}
-                        @endif
-                      @endforeach
-                    </td>
-                    <td>
+                      <a href="/detail-guru/{{ $g->id }}" class="btn btn-icon icon-left btn-info"><i
+                          class="far fa-eye"></i>info</a>
                       <a href="/edit-data/{{ $g->id }}" class="btn btn-icon icon-left btn-primary"><i
                           class="far fa-edit"></i>Edit</a>
                       <form action="/hapusGuru/{{ $g->id }}" method="POST" class="d-inline">

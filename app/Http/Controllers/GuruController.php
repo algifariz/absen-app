@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\Jabatan;
 use App\Models\Tingkatan;
 use App\Models\Tunjangan;
+use App\Models\JenisTunjangan;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -12,13 +14,11 @@ class GuruController extends Controller
   public function index()
   {
     $title = 'Data Guru';
-    $guru = Guru::with('tingkatan')->get();
-    $tunjangan = Tunjangan::all();
+    $guru = Guru::with('jenis_tunjangan')->with('jabatan')->get();
 
     $data = [
       'title' => $title,
       'guru' => $guru,
-      'tunjangan' => $tunjangan,
       'type_menu' => 'data guru'
     ];
     return view('pages/data-guru', $data);
@@ -27,10 +27,12 @@ class GuruController extends Controller
   public function tambah()
   {
     $title = 'Tambah Data Guru';
-    $tingkatan = Tingkatan::all();
+    $tunjangan = JenisTunjangan::all();
+    $jabatan = Jabatan::all();
     $data = [
       'title' => $title,
-      'tingkatan' => $tingkatan,
+      'tunjangan' => $tunjangan,
+      'jabatan' => $jabatan,
       'type_menu' => 'data guru'
 
     ];
@@ -42,23 +44,45 @@ class GuruController extends Controller
     $request->validate([
       'nama' => 'required',
       'nuptk' => 'required',
-      'tingkatan_id' => 'required',
-
+      'tempat_lahir' => 'required',
+      'tanggal_lahir' => 'required',
+      'jenis_kelamin' => 'required',
+      'agama' => 'required',
+      'alamat' => 'required',
+      'no_hp' => 'required',
+      'tunjangan_id' => 'required',
+      'jabatan_id' => 'required',
     ]);
 
     Guru::create($request->all());
     return redirect('/data-guru')->with('status', 'Data Guru Berhasil Ditambahkan');
   }
 
+  public function detail($id)
+  {
+    $title = 'Detail Data Guru';
+    $guru = Guru::find($id);
+
+    $data = [
+      'title' => $title,
+      'guru' => $guru,
+      'type_menu' => 'data guru'
+    ];
+    return view('pages/detail-guru', $data);
+  }
+
   public function edit($id)
   {
     $title = 'Edit Data Guru';
     $guru = Guru::find($id);
-    $tingkatan = Tingkatan::all();
+    $tunjangan = JenisTunjangan::all();
+    $jabatan = Jabatan::all();
+
     $data = [
       'title' => $title,
       'guru' => $guru,
-      'tingkatan' => $tingkatan,
+      'tunjangan' => $tunjangan,
+      'jabatan' => $jabatan,
       'type_menu' => 'data guru'
     ];
     return view('pages/edit-data', $data);
@@ -70,13 +94,28 @@ class GuruController extends Controller
     $request->validate([
       'nama' => 'required',
       'nuptk' => 'required',
-      'tingkatan_id' => 'required',
-
+      'tempat_lahir' => 'required',
+      'tanggal_lahir' => 'required',
+      'jenis_kelamin' => 'required',
+      'agama' => 'required',
+      'alamat' => 'required',
+      'no_hp' => 'required',
+      'tunjangan_id' => 'required',
+      'jabatan_id' => 'required',
     ]);
+
     $guru = Guru::find($id);
     $guru->nama = $request->nama;
     $guru->nuptk = $request->nuptk;
-    $guru->tingkatan_id = $request->tingkatan_id;
+    $guru->tempat_lahir = $request->tempat_lahir;
+    $guru->tanggal_lahir = $request->tanggal_lahir;
+    $guru->jenis_kelamin = $request->jenis_kelamin;
+    $guru->agama = $request->agama;
+    $guru->alamat = $request->alamat;
+    $guru->no_hp = $request->no_hp;
+    $guru->tunjangan_id = $request->tunjangan_id;
+    $guru->jabatan_id = $request->jabatan_id;
+
     $guru->save();
     return redirect('/data-guru')->with('status', 'Data Guru Berhasil Diubah');
   }

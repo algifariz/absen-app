@@ -18,6 +18,10 @@ class JabatanSeeder extends Seeder
     {
         $data_jabatan = [
             [
+                'nama_jabatan' => 'Tidak Menjabat',
+                'besar_tunjangan' => '0',
+            ],
+            [
                 'nama_jabatan' => 'Kepala Madrasah',
                 'besar_tunjangan' => '100000',
             ],

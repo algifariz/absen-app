@@ -25,7 +25,6 @@ Route::get('/dashboard', function () {
     return view('pages.dashboard', ['type_menu' => 'dashboard']);
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/data-guru', [App\Http\Controllers\GuruController::class, 'index'])->middleware('auth');
 
 Route::get('/rekap-absen', function () {
     return view('pages.rekap-absen', [
@@ -47,8 +46,10 @@ Route::get('/scan', function () {
 })->middleware(['auth']);
 
 // Guru
+Route::get('/data-guru', [App\Http\Controllers\GuruController::class, 'index'])->middleware('auth')->name('data-guru');
 Route::get('/tambah-data', [App\Http\Controllers\GuruController::class, 'tambah'])->middleware(['auth']);
 Route::post('/guru/simpan_guru', [App\Http\Controllers\GuruController::class, 'simpan_guru'])->middleware(['auth']);
+Route::get('/detail-guru/{id}', [App\Http\Controllers\GuruController::class, 'detail'])->middleware(['auth']);
 Route::get('/edit-data/{id}', [App\Http\Controllers\GuruController::class, 'edit'])->middleware(['auth']);
 Route::put('/updateGuru/{id}', [App\Http\Controllers\GuruController::class, 'update'])->name('updateGuru')->middleware(['auth']);
 Route::delete('/hapusGuru/{id}', [App\Http\Controllers\GuruController::class, 'destroy'])->middleware(['auth']);
