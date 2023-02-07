@@ -32,7 +32,8 @@
                   <th scope="col">NO</th>
                   <th scope="col">Nama</th>
                   <th scope="col">NUPTK</th>
-                  <th scope="col">Jabatan Sebagai</th>
+                  <th scope="col">Jenis Tunjangan</th>
+                  <th scope="col">Jabatan</th>
 
                   <th scope="col">Honor Per Jam</th>
                   <th scope="col">Action</th>
