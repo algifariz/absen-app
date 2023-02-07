@@ -12,14 +12,11 @@ class JamMengajarController extends Controller
     public function index()
     {
         $title = 'Data Jam Mengajar';
-        // jam mengajar with $guru
-        $tunjangan = Tunjangan::all();
         $jam_mengajar = JamMengajar::with('guru')->get();
 
         $data = [
             'title' => $title,
             'jam_mengajar' => $jam_mengajar,
-            'tunjangan' => $tunjangan,
             'type_menu' => 'data jam mengajar'
         ];
         return view('pages/data-jam-mengajar', $data);
