@@ -40,7 +40,7 @@
                     <td>{{ $t->jenis_tunjangan }}</td>
                     <td>Rp {{ number_format($t->besar_tunjangan, 0, ',', '.') }}</td>
                     <td>
-                      <a href="/edit-data-tunjangan/{{ $t->id }}" class="btn btn-icon icon-left btn-primary"><i
+                      <a href="/edit-tunjangan/{{ $t->id }}" class="btn btn-icon icon-left btn-primary"><i
                           class="far fa-edit"></i>Edit</a>
                     </td>
                   </tr>

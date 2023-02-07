@@ -58,18 +58,11 @@ Route::get('/data-jabatan', [App\Http\Controllers\JabatanController::class, 'ind
 Route::get('/edit-jabatan/{id}', [App\Http\Controllers\JabatanController::class, 'edit'])->middleware(['auth']);
 Route::put('/update-jabatan/{id}', [App\Http\Controllers\JabatanController::class, 'update'])->middleware(['auth']);
 
-Route::post('/tingkatan/simpan_tingkatan', [App\Http\Controllers\TingkatanController::class, 'simpan_tingkatan'])->middleware(['auth']);
-Route::get('/edit-tingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'edit'])->middleware(['auth']);
-Route::put('/updateTingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'update'])->name('updateTingkatan')->middleware(['auth']);
-Route::delete('/hapusTingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'destroy'])->middleware(['auth']);
 
 // Tunjangan
 Route::get('/data-tunjangan', [App\Http\Controllers\JenisTunjangan::class, 'index'])->middleware(['auth']);
-Route::get('/tambah-data-tunjangan', [App\Http\Controllers\TunjanganController::class, 'tambah'])->middleware(['auth']);
-Route::post('/tunjangan/simpan_tunjangan', [App\Http\Controllers\TunjanganController::class, 'simpan_tunjangan'])->middleware(['auth']);
-Route::get('/edit-data-tunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'edit'])->middleware(['auth']);
-Route::put('/updateTunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'update'])->name('updateTunjangan')->middleware(['auth']);
-Route::delete('/hapusTunjangan/{id}', [App\Http\Controllers\TunjanganController::class, 'destroy'])->middleware(['auth']);
+Route::get('/edit-tunjangan/{id}', [App\Http\Controllers\JenisTunjangan::class, 'edit'])->middleware(['auth']);
+Route::put('/update-tunjangan/{id}', [App\Http\Controllers\JenisTunjangan::class, 'update'])->middleware(['auth']);
 
 //jam mengajar
 Route::get('/data-jam-mengajar', [App\Http\Controllers\JamMengajarController::class, 'index'])->middleware(['auth']);
