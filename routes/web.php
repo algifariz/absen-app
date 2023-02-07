@@ -21,9 +21,7 @@ Route::get('/', function () {
 });
 
 // Dashboard
-Route::get('/dashboard', function () {
-    return view('pages.dashboard', ['type_menu' => 'dashboard']);
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [App\Http\Controllers\Dashboard::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 
 Route::get('/rekap-absen', function () {

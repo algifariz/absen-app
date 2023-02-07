@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'General Dashboard')
+@section('title', $title)
 
 @push('style')
   <!-- CSS Libraries -->
@@ -12,7 +12,7 @@
   <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Dashboard</h1>
+        <h1>{{ $title }}</h1>
       </div>
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -25,7 +25,8 @@
                 <h4>Total Guru</h4>
               </div>
               <div class="card-body">
-                10
+                {{ $jumlah_guru }}
+
 
               </div>
             </div>
