@@ -31,6 +31,7 @@
                 <tr>
                   <th scope="col">NO</th>
                   <th scope="col">Nama</th>
+                  <th scope="col">Jumlah Tunjangan</th>
                   <th scope="col">Jam Mengajar</th>
                   <th scope="col">Action</th>
                 </tr>
@@ -41,6 +42,9 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>
                       {{ $jam->guru->nama }}
+                    </td>
+                    <td>
+                      Rp {{ number_format($jam->guru->jumlah_tunjangan, 0, ',', '.') }}
                     </td>
                     <td>{{ $jam->jam_mengajar }} Jam</td>
                     <td>
