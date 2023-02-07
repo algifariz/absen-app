@@ -8,7 +8,7 @@ class JabatanController extends Controller
 {
     public function index()
     {
-        $jabatan = \App\Models\Jabatan::all();
+        $jabatan = \App\Models\Jabatan::where('id', '!=', 1)->get();
         $data = [
             'title' => 'Data Jabatan',
             'jabatan' => $jabatan,
