@@ -21,7 +21,7 @@
       {{-- master --}}
       <li class="menu-header">Master Data</li>
       <li
-        class="nav-item dropdown {{ $type_menu === 'data guru' || $type_menu === 'data jabatan' || $type_menu === 'data tunjangan' || 'data jam mengajar' ? 'active' : '' }}">
+        class="nav-item dropdown {{ $type_menu === 'data guru' || $type_menu === 'data jabatan' || $type_menu === 'data tunjangan' || $type_menu === 'data jam mengajar' ? 'active' : '' }}">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i>
           <span>Master Data</span></a>
         <ul class="dropdown-menu block">
@@ -42,6 +42,8 @@
                 aria-hidden="true"></i></i><span>Data jam Mengajar</span></a>
           </li>
         </ul>
+      </li>
+
       <li class="menu-header">Trasaksi</li>
       <li class="nav-item dropdown {{ $type_menu === 'data-absen' || $type_menu === 'data-gajih' ? 'active' : '' }}">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
@@ -57,7 +59,9 @@
                 aria-hidden="true"></i><span>Data Gajih</span></a>
           </li>
         </ul>
-        {{-- <li class="menu-header">Laporan</li>
+      </li>
+
+      <li class="menu-header">Laporan</li>
       <li
         class="nav-item dropdown {{ $type_menu === 'laporan-absen' || $type_menu === 'laporan-gajih' || $type_menu === 'slip-gajih' ? 'active' : '' }}">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa-solid fa-newspaper"></i>
@@ -76,12 +80,11 @@
                 Gajih</span></a>
           </li>
         </ul>
-      </li> --}}
+      </li>
 
       <li class="nav-item dropdown {{ $type_menu === 'generate qr code' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('generate-qr-code') }}"><i class="fas fa-qrcode"></i><span>Generate QR
             Code</span></a>
-      </li>
       </li>
     </ul>
   </aside>
