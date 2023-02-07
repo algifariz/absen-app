@@ -53,9 +53,11 @@ Route::get('/edit-data/{id}', [App\Http\Controllers\GuruController::class, 'edit
 Route::put('/updateGuru/{id}', [App\Http\Controllers\GuruController::class, 'update'])->name('updateGuru')->middleware(['auth']);
 Route::delete('/hapusGuru/{id}', [App\Http\Controllers\GuruController::class, 'destroy'])->middleware(['auth']);
 
-// Tingkatan
-// Route::get('/tambah-tingkatan', [App\Http\Controllers\TingkatanController::class, 'tambah'])->middleware(['auth']);
+// Jabatan
 Route::get('/data-jabatan', [App\Http\Controllers\JabatanController::class, 'index'])->middleware(['auth']);
+Route::get('/edit-jabatan/{id}', [App\Http\Controllers\JabatanController::class, 'edit'])->middleware(['auth']);
+Route::put('/update-jabatan/{id}', [App\Http\Controllers\JabatanController::class, 'update'])->middleware(['auth']);
+
 Route::post('/tingkatan/simpan_tingkatan', [App\Http\Controllers\TingkatanController::class, 'simpan_tingkatan'])->middleware(['auth']);
 Route::get('/edit-tingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'edit'])->middleware(['auth']);
 Route::put('/updateTingkatan/{id}', [App\Http\Controllers\TingkatanController::class, 'update'])->name('updateTingkatan')->middleware(['auth']);

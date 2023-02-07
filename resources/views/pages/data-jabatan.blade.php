@@ -42,7 +42,7 @@
                     <td>{{ $jab->nama_jabatan }}</td>
                     <td>Rp {{ number_format($jab->besar_tunjangan, 0, ',', '.') }}</td>
                     <td>
-                      <a href="/edit-tingkatan/{{ $jab->id }}" class="btn btn-icon icon-left btn-primary"><i
+                      <a href="/edit-jabatan/{{ $jab->id }}" class="btn btn-icon icon-left btn-primary"><i
                           class="far fa-edit"></i>
                         Edit</a>
                     </td>

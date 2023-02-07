@@ -17,4 +17,25 @@ class JabatanController extends Controller
 
         return view('pages/data-jabatan', $data);
     }
+
+    public function edit($id)
+    {
+        $jabatan = \App\Models\Jabatan::find($id);
+        $data = [
+            'title' => 'Edit Jabatan',
+            'jabatan' => $jabatan,
+            'type_menu' => 'data jabatan'
+        ];
+
+        return view('pages/edit-jabatan', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $jabatan = \App\Models\Jabatan::find($id);
+        $jabatan->besar_tunjangan = $request->besar_tunjangan;
+        $jabatan->save();
+
+        return redirect('/data-jabatan');
+    }
 }
