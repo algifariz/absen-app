@@ -40,7 +40,7 @@
               <tbody>
                 @foreach ($guru as $g)
                   <tr>
-                    <th scope="row">{{ $g->id }}</th>
+                    <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $g->nama }} </td>
                     <td>{{ $g->nuptk }}</td>
                     <td>{{ $g->jenis_tunjangan->jenis_tunjangan }}</td>

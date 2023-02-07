@@ -38,7 +38,7 @@
               <tbody>
                 @foreach ($tunjangan as $t)
                   <tr>
-                    <th scope="row">{{ $t->id }}</th>
+                    <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $t->tingkatan->nama }}</td>
                     <td>Rp {{ number_format($t->besar_tunjangan, 0, ',', '.') }}</td>
                     <td>
