@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('agama');
             $table->string('alamat');
             $table->string('no_hp');
+            $table->integer('jumlah_tunjangan');
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Models\Jabatan;
 use App\Models\Tingkatan;
 use App\Models\Tunjangan;
 use App\Models\JenisTunjangan;
+use Faker\Core\Number;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -54,7 +55,24 @@ class GuruController extends Controller
       'jabatan_id' => 'required',
     ]);
 
-    Guru::create($request->all());
+    $tunjangan = JenisTunjangan::find($request->tunjangan_id);
+    $jabatan = Jabatan::find($request->jabatan_id);
+    $totalan = intval($tunjangan->besar_tunjangan) + intval($jabatan->besar_tunjangan);
+    $jumlah_tunjangan = $totalan;
+
+    $guru = Guru::create([
+      'nama' => $request->nama,
+      'nuptk' => $request->nuptk,
+      'tempat_lahir' => $request->tempat_lahir,
+      'tanggal_lahir' => $request->tanggal_lahir,
+      'jenis_kelamin' => $request->jenis_kelamin,
+      'agama' => $request->agama,
+      'alamat' => $request->alamat,
+      'no_hp' => $request->no_hp,
+      'tunjangan_id' => $request->tunjangan_id,
+      'jabatan_id' => $request->jabatan_id,
+      'jumlah_tunjangan' => $jumlah_tunjangan
+    ]);
     return redirect('/data-guru')->with('status', 'Data Guru Berhasil Ditambahkan');
   }
 
@@ -104,6 +122,11 @@ class GuruController extends Controller
       'jabatan_id' => 'required',
     ]);
 
+    $tunjangan = JenisTunjangan::find($request->tunjangan_id);
+    $jabatan = Jabatan::find($request->jabatan_id);
+    $totalan = intval($tunjangan->besar_tunjangan) + intval($jabatan->besar_tunjangan);
+    $jumlah_tunjangan = $totalan;
+
     $guru = Guru::find($id);
     $guru->nama = $request->nama;
     $guru->nuptk = $request->nuptk;
@@ -113,6 +136,7 @@ class GuruController extends Controller
     $guru->agama = $request->agama;
     $guru->alamat = $request->alamat;
     $guru->no_hp = $request->no_hp;
+    $guru->jumlah_tunjangan = $jumlah_tunjangan;
     $guru->tunjangan_id = $request->tunjangan_id;
     $guru->jabatan_id = $request->jabatan_id;
 

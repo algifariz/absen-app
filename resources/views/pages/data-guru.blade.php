@@ -34,6 +34,7 @@
                   <th scope="col">NUPTK</th>
                   <th scope="col">Jenis Tunjangan</th>
                   <th scope="col">Jabatan</th>
+                  <th scope="col">Jumlah Tunjangan</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -45,6 +46,7 @@
                     <td>{{ $g->nuptk }}</td>
                     <td>{{ $g->jenis_tunjangan->jenis_tunjangan }}</td>
                     <td>{{ $g->jabatan->nama_jabatan }}</td>
+                    <td>Rp {{ number_format($g->jumlah_tunjangan, 0, ',', '.') }}</td>
                     <td>
                       <a href="/detail-guru/{{ $g->id }}" class="btn btn-icon icon-left btn-info"><i
                           class="far fa-eye"></i>info</a>
