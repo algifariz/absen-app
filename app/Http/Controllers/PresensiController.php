@@ -11,7 +11,7 @@ class PresensiController extends Controller
     public function index()
     {
         // data presensi
-        $presensi = Presensi::with('guru.tingkatan')->get();
+        $presensi = Presensi::get();
         // data guru filter yang tidak ada di presensi
         $guru = Guru::whereNotIn('nuptk', function ($query) {
             $query->select('nuptk')->from('presensi')->where('tanggal', date('Y-m-d'));

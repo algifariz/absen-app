@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Guru;
 use App\Models\Jabatan;
-use App\Models\Tingkatan;
-use App\Models\Tunjangan;
 use App\Models\JenisTunjangan;
 use Faker\Core\Number;
 use Illuminate\Http\Request;
