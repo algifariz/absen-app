@@ -55,35 +55,53 @@
                   <h4>Informasi QR Code Akan Muncul Di Sini</h4>
                 </div>
                 <div id="print-section">
-                  <div class="card-body d-flex align-items-center justify-item-center">
-                    <div>
-                      {{ $qrCodeData }}
-                    </div>
-                    <div class="ml-3">
-                      <h2 class="mb-0">{{ $nuptk }}</h2>
-                      <p class="mb-0">Nama Guru: {{ $namaGuru }}</p>
+                  <div class="row">
+                    <div class="col-12 col-md-6 col-sm-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4>
+                            <center>ID Card</center>
+                          </h4>
+                        </div>
+                        <div class="card-body">
+                          <center>
+                            <div>
+                              {{ $qrCodeData }}
+                            </div>
+                          </center>
+                          <center>
+                            <div class="ml-3">
+                              <p class="mb-0">Nama Guru :{{ $namaGuru }}</p>
+                              <p class="mb-0">NUPTK :{{ $nuptk }}</p>
+
+                            </div>
+                          </center>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="card-footer text-right">
-                  <button class="btn btn-success" onclick="printSection()">Print</button>
-                </div>
 
+                </div>
               </div>
+              <div class="card-footer text-right">
+                <button class="btn btn-success" onclick="printSection()">Print</button>
+              </div>
+
             </div>
           </div>
         </div>
-      @endif
-    @endsection
+  </div>
+  @endif
+@endsection
 
-    {{-- Add custom script javascript --}}
-    @push('script')
-      <script>
-        function printSection() {
-          var printContents = document.getElementById('print-section').innerHTML;
-          var originalContents = document.body.innerHTML;
-          document.body.innerHTML = printContents;
-          window.print();
-          document.body.innerHTML = originalContents;
-        }
-      </script>
+{{-- Add custom script javascript --}}
+@push('script')
+  <script>
+    function printSection() {
+      var printContents = document.getElementById('print-section').innerHTML;
+      var originalContents = document.body.innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
+    }
+  </script>

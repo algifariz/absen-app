@@ -26,50 +26,52 @@
             <h4>{{ $title }}</h4>
           </div>
           <div class="card-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">NO</th>
-                  <th scope="col">Nama</th>
-                  <th scope="col">NUPTK</th>
-                  <th scope="col">Jenis Tunjangan</th>
-                  <th scope="col">Jabatan</th>
-                  <th scope="col">Jumlah Tunjangan</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($guru as $g)
+            <div class="table-responsive">
+              <table class="table-striped table" id="table-1">
+                <thead>
                   <tr>
-                    <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $g->nama }} </td>
-                    <td>{{ $g->nuptk }}</td>
-                    <td>{{ $g->jenis_tunjangan->jenis_tunjangan }}</td>
-                    <td>{{ $g->jabatan->nama_jabatan }}</td>
-                    <td>Rp {{ number_format($g->jumlah_tunjangan, 0, ',', '.') }}</td>
-                    <td>
-                      <a href="/detail-guru/{{ $g->id }}" class="btn btn-icon icon-left btn-info"><i
-                          class="far fa-eye"></i>info</a>
-                      <a href="/edit-data/{{ $g->id }}" class="btn btn-icon icon-left btn-primary"><i
-                          class="far fa-edit"></i>Edit</a>
-                      <form action="/hapusGuru/{{ $g->id }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')"
-                          class="btn btn-icon icon-left btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></i>
-                          Hapus</button>
-                      </form>
-                    </td>
+                    <th scope="col">NO</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">NUPTK</th>
+                    <th scope="col">Tunjangan</th>
+                    <th scope="col">Jumlah</th>
+                    <th scope="col">Action</th>
                   </tr>
-                @endforeach
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  @foreach ($guru as $g)
+                    <tr>
+                      <th scope="row">{{ $loop->iteration }}</th>
+                      <td>{{ $g->nama }} </td>
+                      <td>{{ $g->nuptk }}</td>
+                      <td>{{ $g->jenis_tunjangan->jenis_tunjangan }}</td>
+
+                      <td>Rp {{ number_format($g->jumlah_tunjangan, 0, ',', '.') }}</td>
+                      <td>
+                        <a href="/detail-guru/{{ $g->id }}" class="btn btn-icon icon-left btn-info"><i
+                            class="far fa-eye"></i></a>
+                        <a href="/edit-data/{{ $g->id }}" class="btn btn-icon icon-left btn-primary"><i
+                            class="far fa-edit"></i></a>
+                        <form action="/hapusGuru/{{ $g->id }}" method="POST" class="d-inline">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')"
+                            class="btn btn-icon icon-left btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></i>
+                          </button>
+                        </form>
+                      </td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      @endsection
+      </div>
+    @endsection
 
-      @push('scripts')
-        <!-- JS Libraies -->
+    @push('scripts')
+      <!-- JS Libraies -->
 
-        <!-- Page Specific JS File -->
-      @endpush
+      <!-- Page Specific JS File -->
+    @endpush

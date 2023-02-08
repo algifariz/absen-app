@@ -29,7 +29,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h4>Data Presensi Guru</h4>
+                <h4>{{ $title }}</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -39,10 +39,12 @@
                         <th scope="col"> No</th>
                         <th scope="col">NUPTK</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">jam Masuk</th>
-                        <th scope="col">jam Keluar</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Jenis Tunjangan</th>
+                        <th scope="col">Jabatan</th>
+                        <th scope="col">jumlah Tunjangan</th>
+                        <th scope="col">Jumlah Jam</th>
+                        <th scope="col">Potongan</th>
+                        <th scope="col">Total</th>
                       </tr>
                     </thead>
                     <tbody>
