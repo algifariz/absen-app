@@ -15,6 +15,7 @@
       <li class="nav-item dropdown {{ $type_menu === 'scan qr' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('scan') }}"><i class="fas fa-camera"></i><span>Scan Qr</span></a>
       </li>
+
       <li class="nav-item dropdown {{ $type_menu === 'status' ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('status-guru') }}"><i class="fas fa-check"></i><span>Status</span></a>
       </li>

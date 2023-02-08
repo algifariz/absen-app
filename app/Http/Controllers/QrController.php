@@ -27,7 +27,7 @@ class QrController extends Controller
 
         $nuptk = Guru::find($request->guru_id)->nuptk;
 
-        $qrCodeData = QrCode::size(100)->generate($nuptk);
+        $qrCodeData = QrCode::size(350)->generate($nuptk);
 
         return view('pages/generate-qr-code', [
             'type_menu' => 'generate qr code',

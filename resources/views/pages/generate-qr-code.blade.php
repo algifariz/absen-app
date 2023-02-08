@@ -56,12 +56,12 @@
                 </div>
                 <div id="print-section">
                   <div class="row">
-                    <div class="col-12 col-md-6 col-sm-12">
+                    <div class="col-12">
                       <div class="card">
                         <div class="card-header">
-                          <h4>
-                            <center>ID Card</center>
-                          </h4>
+                          <h2 class="mx-auto">
+                            ID Card
+                          </h2>
                         </div>
                         <div class="card-body">
                           <center>
@@ -70,9 +70,9 @@
                             </div>
                           </center>
                           <center>
-                            <div class="ml-3">
-                              <p class="mb-0">Nama Guru :{{ $namaGuru }}</p>
-                              <p class="mb-0">NUPTK :{{ $nuptk }}</p>
+                            <div class="mt-3">
+                              <h3 class="mb-0">Nama Guru :{{ $namaGuru }}</h3>
+                              <h4 class="mb-0">NUPTK :{{ $nuptk }}</h4>
 
                             </div>
                           </center>
