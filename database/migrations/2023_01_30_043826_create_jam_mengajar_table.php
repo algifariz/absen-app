@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('nuptk')->unique();
             $table->integer('jam_mengajar');
+            $table->string('hari_mengajar');
             $table->timestamps();
         });
     }

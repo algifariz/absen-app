@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Guru;
 use App\Models\JamMengajar;
-use App\Models\Tunjangan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class JamMengajarController extends Controller
 {
@@ -40,9 +40,14 @@ class JamMengajarController extends Controller
         $request->validate([
             'nuptk' => 'required',
             'jam_mengajar' => 'required',
+            'hari_mengajar' => 'required',
         ]);
-        // JamMengajar::create($request->all());
-        $jam_mengajar = JamMengajar::create($request->all());
+
+        $jam_mengajar = JamMengajar::create([
+            'nuptk' => $request->nuptk,
+            'jam_mengajar' => $request->jam_mengajar,
+            'hari_mengajar' => Str::lower($request->hari_mengajar),
+        ]);
 
         if ($jam_mengajar) {
             return redirect('/data-jam-mengajar')->with('status', 'Data Jam Mengajar Berhasil Ditambahkan');
@@ -74,6 +79,7 @@ class JamMengajarController extends Controller
         $jam_mengajar = JamMengajar::find($id);
         $jam_mengajar->nuptk = $request->nuptk;
         $jam_mengajar->jam_mengajar = $request->jam_mengajar;
+        $jam_mengajar->hari_mengajar = Str::lower($request->hari_mengajar);
         $jam_mengajar->update();
 
         if ($jam_mengajar) {

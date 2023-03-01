@@ -10,7 +10,7 @@ class JamMengajar extends Model
 
     use HasFactory;
     protected $table = 'jam_mengajar';
-    protected $fillable = ['nuptk', 'jam_mengajar'];
+    protected $fillable = ['nuptk', 'jam_mengajar', 'hari_mengajar'];
 
     //join guru
     public function guru()

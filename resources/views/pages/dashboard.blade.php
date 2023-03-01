@@ -82,7 +82,6 @@
             <h4>Visi</h4>
           </div>
           <div class="card-body">
-
             <p>“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”</p>
           </div>
 

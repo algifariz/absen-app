@@ -31,8 +31,8 @@
                 <tr>
                   <th scope="col">NO</th>
                   <th scope="col">Nama</th>
-                  <th scope="col">Jumlah Tunjangan</th>
                   <th scope="col">Jam Mengajar</th>
+                  <th scope="col">Hari Mengajar</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -43,10 +43,8 @@
                     <td>
                       {{ $jam->guru->nama }}
                     </td>
-                    <td>
-                      Rp {{ number_format($jam->guru->jumlah_tunjangan, 0, ',', '.') }}
-                    </td>
                     <td>{{ $jam->jam_mengajar }} Jam</td>
+                    <td>{{ $jam->hari_mengajar }}</td>
                     <td>
                       <a href="/edit-data-jam-mengajar/{{ $jam->id }}" class="btn btn-icon icon-left btn-primary"><i
                           class="far fa-edit"></i>Edit</a>

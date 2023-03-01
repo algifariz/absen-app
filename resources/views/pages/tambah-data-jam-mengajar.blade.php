@@ -41,6 +41,12 @@
                       <label>Jam Mengajar</label>
                       <input type="number" name="jam_mengajar" class="form-control" required="">
                     </div>
+
+                    <div class="form-group">
+                      <label>Hari Mengajar</label>
+                      <input type="text" name="hari_mengajar" class="form-control" required="">
+                      <p class="text-small">Apabila lebih dari satu hari pisahkan dengan koma (,)</p>
+                    </div>
                   </div>
                 </div>
 

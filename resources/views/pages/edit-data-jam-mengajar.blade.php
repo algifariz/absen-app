@@ -41,6 +41,12 @@
                       <input type="number" name="jam_mengajar" class="form-control"
                         value="{{ $jam_mengajar->jam_mengajar }}" required>
                     </div>
+
+                    <div class="form-group">
+                      <label>Hari Mengajar</label>
+                      <input type="text" name="hari_mengajar" class="form-control"
+                        value="{{ $jam_mengajar->hari_mengajar }}" required>
+                    </div>
                   </div>
                 </div>
 
