@@ -79,36 +79,35 @@
       <div class="section-body">
         <div class="card">
           <div class="card-header">
-            <h4>Visi & Misi</h4>
+            <h4>Visi</h4>
           </div>
-          <div class="card">
-            <div class="card-body">
-              <h5>Visi</h5>
-              <p>“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”</p>
-            </div>
+          <div class="card-body">
+
+            <p>“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”</p>
           </div>
+
 
         </div>
         <div class="section-body">
           <div class="card">
             <div class="card-header">
-              <h4>Visi & Misi</h4>
+              <h4>Misi</h4>
             </div>
-            <div class="card">
-              <div class="card-body">
-                <h5>Misi</h5>
-                <p>1. Mewujudkan peserta didik yang beriman, bertakwa, berbudaya lingkungan dan berwawasan global.</p>
-                <p>2. Mewujudkan peserta didik yang berprestasi dalam bidang akademik, non akademik dan keagamaan.</p>
-                <p>3. Mewujudkan peserta didik yang berakhlak mulia, berbudi pekerti luhur, berjiwa kewirausahaan dan
-                  berwawasan lingkungan.</p>
-                <p>4. Mewujudkan peserta didik yang berkepribadian islami, berakhlak mulia, berbudi pekerti luhur, berjiwa
-                  kewirausahaan dan berwawasan lingkungan.</p>
-                <p>5. Mewujudkan peserta didik yang berkepribadian islami, berakhlak mulia, berbudi pekerti luhur, berjiwa
-                  kewirausahaan dan berwawasan lingkungan.</p>
-                <p>6. Mewujudkan peserta didik yang berkepribadian islami, berakhlak mulia, berbudi pekerti luhur, berjiwa
-                  kewirausahaan dan berwawasan lingkungan.</p>
-              </div>
+
+            <div class="card-body">
+
+              <p>1. Mewujudkan peserta didik yang beriman, bertakwa, berbudaya lingkungan dan berwawasan global.</p>
+              <p>2. Mewujudkan peserta didik yang berprestasi dalam bidang akademik, non akademik dan keagamaan.</p>
+              <p>3. Mewujudkan peserta didik yang berakhlak mulia, berbudi pekerti luhur, berjiwa kewirausahaan dan
+                berwawasan lingkungan.</p>
+              <p>4. Mewujudkan peserta didik yang berkepribadian islami, berakhlak mulia, berbudi pekerti luhur, berjiwa
+                kewirausahaan dan berwawasan lingkungan.</p>
+              <p>5. Mewujudkan peserta didik yang berkepribadian islami, berakhlak mulia, berbudi pekerti luhur, berjiwa
+                kewirausahaan dan berwawasan lingkungan.</p>
+              <p>6. Mewujudkan peserta didik yang berkepribadian islami, berakhlak mulia, berbudi pekerti luhur, berjiwa
+                kewirausahaan dan berwawasan lingkungan.</p>
             </div>
+
           </div>
         </div>
     </section>
