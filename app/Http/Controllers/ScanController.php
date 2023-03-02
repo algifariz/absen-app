@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\JamMengajar;
 use App\Models\Presensi;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ScanController extends Controller
 {
@@ -24,8 +27,8 @@ class ScanController extends Controller
         // check if nuptk exists in table guru
         $guru = Guru::where('nuptk', $nuptk)->first();
 
-        // Then check if nuptk not exists in table presensi for today
         if ($guru) {
+            // Then check if nuptk not exists in table presensi for today
             $presensi = Presensi::where('nuptk', $nuptk)->where('tanggal', date('Y-m-d'))->first();
 
             if ($presensi) {
@@ -74,30 +77,38 @@ class ScanController extends Controller
                     ]);
                 }
             } else {
-                $request->validate([
-                    'qr_code' => 'required',
-                ]);
+                // Check if day_now is in hari_mengajar
+                $jam_mengajar = JamMengajar::with('guru')->where('nuptk', $nuptk)->get();
+                $hari_mengajar = explode(',', $jam_mengajar[0]->hari_mengajar);
+                $day_now = Str::lower(Carbon::now()->locale('id')->dayName);
 
-                $create = Presensi::create(
-                    [
-                        'nuptk' => $nuptk,
-                        'tanggal' => date('Y-m-d'),
-                        'jam_masuk' => date('H:i:s', strtotime('+7 hours')),
-                        'jam_keluar' => null,
-                        'kehadiran' => 1,
-                        'status' => 0,
-                    ]
-                );
-                // If success then return status 200 else return status 400
-                if ($create) {
-                    return response()->json([
-                        'status' => 200,
-                        'message' => 'Berhasil',
-                    ]);
+                if (in_array($day_now, $hari_mengajar)) {
+                    $create = Presensi::create(
+                        [
+                            'nuptk' => $nuptk,
+                            'tanggal' => date('Y-m-d'),
+                            'jam_masuk' => date('H:i:s', strtotime('+7 hours')),
+                            'jam_keluar' => null,
+                            'kehadiran' => 1,
+                            'status' => 0,
+                        ]
+                    );
+                    // If success then return status 200 else return status 400
+                    if ($create) {
+                        return response()->json([
+                            'status' => 200,
+                            'message' => 'Berhasil',
+                        ]);
+                    } else {
+                        return response()->json([
+                            'status' => 400,
+                            'message' => 'Gagal',
+                        ]);
+                    }
                 } else {
                     return response()->json([
                         'status' => 400,
-                        'message' => 'Gagal',
+                        'message' => 'Gagal, hari ini tidak ada jam mengajar!',
                     ]);
                 }
             }
