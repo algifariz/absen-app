@@ -34,7 +34,8 @@
                     <th scope="col">Nama</th>
                     <th scope="col">NUPTK</th>
                     <th scope="col">Tunjangan</th>
-                    <th scope="col">Jumlah</th>
+                    <th scope="col">Tunjangan Pokok</th>
+                    <th scope="col">Tunjangan Jabatan</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -46,7 +47,8 @@
                       <td>{{ $g->nuptk }}</td>
                       <td>{{ $g->jenis_tunjangan->jenis_tunjangan }}</td>
 
-                      <td>Rp {{ number_format($g->jumlah_tunjangan, 0, ',', '.') }}</td>
+                      <td>Rp {{ number_format($g->tunjangan_pokok, 0, ',', '.') }}</td>
+                      <td>Rp {{ number_format($g->tunjangan_jabatan, 0, ',', '.') }}</td>
                       <td>
                         <a href="/detail-guru/{{ $g->id }}" class="btn btn-icon icon-left btn-info"><i
                             class="far fa-eye"></i></a>

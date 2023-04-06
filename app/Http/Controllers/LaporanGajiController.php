@@ -12,11 +12,19 @@ class LaporanGajiController extends Controller
 {
     public function index()
     {
-        // Guru with tunjangan then laporan_gajih with guru
-        $laporan_gajih = Guru::with('jenis_tunjangan')->with('laporan')->with('jabatan')->with('jam_mengajar')->get();
+        // month_now_id is name of month now in locale id
+        $month_now_id = Carbon::now()->locale('id')->monthName;
+        $laporan_gajih = Laporan::with('guru.jabatan', 'guru.jenis_tunjangan', 'guru.jam_mengajar')->where('bulan', $month_now_id)->get();
+
+        // get month now
+        $month_now = Carbon::now()->format('m');
+        // count presensi each guru in laporan gaji in month now
+        $count = Laporan::with('guru.presensi')->whereMonth('created_at', $month_now)->get();
         $data = [
             'title' => 'Laporan Gaji',
             'laporan_gajih' => $laporan_gajih,
+            'count' => $count,
+            'month_now' => $month_now,
             'type_menu' => 'laporan-gaji'
         ];
 
@@ -67,6 +75,14 @@ class LaporanGajiController extends Controller
             'bulan' => 'required',
             'tahun' => 'required',
         ]);
+
+        $month_now = Carbon::now()->format('m');
+        // if guru already in laporan gaji in month now, then redirect to laporan gaji and not add new laporan gaji
+        if (Laporan::where('nuptk', $request->nuptk)->whereMonth('created_at', $month_now)->exists()) {
+            return redirect('/laporan-gaji')->with('error', 'Guru sudah ada di laporan gaji bulan ini');
+        }
+
+
         Laporan::create([
             'nuptk' => $request->nuptk,
             'bulan' => $request->bulan,

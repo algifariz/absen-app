@@ -55,8 +55,8 @@ class GuruController extends Controller
 
     $tunjangan = JenisTunjangan::find($request->tunjangan_id);
     $jabatan = Jabatan::find($request->jabatan_id);
-    $totalan = intval($tunjangan->besar_tunjangan) + intval($jabatan->besar_tunjangan);
-    $jumlah_tunjangan = $totalan;
+    $tunjangan_pokok = intval($tunjangan->besar_tunjangan);
+    $tunjangan_jabatan = intval($jabatan->besar_tunjangan);
 
     Guru::create([
       'nama' => $request->nama,
@@ -69,7 +69,8 @@ class GuruController extends Controller
       'no_hp' => $request->no_hp,
       'tunjangan_id' => $request->tunjangan_id,
       'jabatan_id' => $request->jabatan_id,
-      'jumlah_tunjangan' => $jumlah_tunjangan
+      'tunjangan_pokok' => $tunjangan_pokok,
+      'tunjangan_jabatan' => $tunjangan_jabatan
     ]);
     return redirect('/data-guru')->with('status', 'Data Guru Berhasil Ditambahkan');
   }
@@ -122,8 +123,8 @@ class GuruController extends Controller
 
     $tunjangan = JenisTunjangan::find($request->tunjangan_id);
     $jabatan = Jabatan::find($request->jabatan_id);
-    $totalan = intval($tunjangan->besar_tunjangan) + intval($jabatan->besar_tunjangan);
-    $jumlah_tunjangan = $totalan;
+    $tunjangan_pokok = intval($tunjangan->besar_tunjangan);
+    $tunjangan_jabatan = intval($jabatan->besar_tunjangan);
 
     $guru = Guru::find($id);
     $guru->nama = $request->nama;
@@ -134,7 +135,8 @@ class GuruController extends Controller
     $guru->agama = $request->agama;
     $guru->alamat = $request->alamat;
     $guru->no_hp = $request->no_hp;
-    $guru->jumlah_tunjangan = $jumlah_tunjangan;
+    $guru->tunjangan_pokok = $tunjangan_pokok;
+    $guru->tunjangan_jabatan = $tunjangan_jabatan;
     $guru->tunjangan_id = $request->tunjangan_id;
     $guru->jabatan_id = $request->jabatan_id;
 
