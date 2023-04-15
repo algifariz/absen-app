@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jam_mengajar', function (Blueprint $table) {
+        Schema::create('laporan_gajih', function (Blueprint $table) {
             $table->id();
-            $table->string('nuptk')->unique();
-            $table->integer('jam_mengajar');
-            $table->string('hari_mengajar');
+            $table->string('nuptk');
+            $table->string('bulan');
+            $table->string('tahun');
+
+
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jam_mengajar');
+        Schema::dropIfExists('laporan_gajih');
     }
 };

@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', $title)
+@section('title')
 
-@push('style')
-  <!-- CSS Libraries -->
-@endpush
+  @push('style')
+    <!-- CSS Libraries -->
+  @endpush
 
 @section('main')
   <div class="main-content">
@@ -18,13 +18,13 @@
         <div class="row">
           <div class="col-12 ">
             <div class="card">
-              <form class="d-flex justify-content-center flex-column" action="{{ url('/simpan_jam_mengajar') }}"
+              <form class="d-flex justify-content-center flex-column" action="{{ url('laporan_gaji/simpan_laporan') }}"
                 method="POST">
                 @csrf
                 @method('POST')
                 <div class="col-12">
                   <div class="card-header">
-                    <h4>Tambah Data Jam Mengajar</h4>
+                    <h4>Tambah Gaji Guru</h4>
                   </div>
                   <div class="card-body col-8 mx-auto">
                     <div class="form-group mb-4">
@@ -38,17 +38,22 @@
                     </div>
 
                     <div class="form-group">
-                      <label>Jam Mengajar</label>
-                      <input type="number" name="jam_mengajar" class="form-control" required="">
+                      <label>Bulan</label>
+                      <input type="text" name="bulan" value="{{ $bulan }}" class="form-control"readonly>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Tahun</label>
+                      <input type="text" value="{{ $tahun }}" class="form-control" name="tahun"readonly>
                     </div>
                   </div>
                 </div>
+                <div class="card-footer text-right">
+                  <button class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
 
-            </div>
-            <div class="card-footer text-right">
-              <button class="btn btn-primary">Submit</button>
-            </div>
-            </form>
           </div>
         </div>
 

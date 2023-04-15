@@ -94,3 +94,5 @@ Route::post('/validasi', [App\Http\Controllers\ScanController::class, 'validasi'
 
 //laporan gaji
 Route::get('/laporan-gaji', [App\Http\Controllers\LaporanGajiController::class, 'index'])->middleware(['auth']);
+Route::get('/tambah-gaji', [App\Http\Controllers\LaporanGajiController::class, 'tambah'])->middleware(['auth']);
+Route::post('/laporan_gaji/simpan_laporan', [App\Http\Controllers\LaporanGajiController::class, 'simpan_laporan'])->middleware(['auth']);

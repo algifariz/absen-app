@@ -31,4 +31,9 @@ class Guru extends Model
     {
         return $this->hasMany(JamMengajar::class, 'nuptk', 'nuptk');
     }
+
+    public function laporan()
+    {
+        return $this->hasMany(Laporan::class, 'nuptk', 'nuptk');
+    }
 }

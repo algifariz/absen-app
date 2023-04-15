@@ -58,7 +58,7 @@ class GuruController extends Controller
     $totalan = intval($tunjangan->besar_tunjangan) + intval($jabatan->besar_tunjangan);
     $jumlah_tunjangan = $totalan;
 
-    $guru = Guru::create([
+    Guru::create([
       'nama' => $request->nama,
       'nuptk' => $request->nuptk,
       'tempat_lahir' => $request->tempat_lahir,
